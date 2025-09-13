@@ -50,12 +50,14 @@ export function OrderListPage() {
         onStatusChange={setStatusFilter}
       />
 
-      {/* Table */}
-      <OrdersTable 
-        orders={filteredOrders}
-        currentPage={currentPage}
-        onPageChange={setCurrentPage}
-      />
+      {/* Table card */}
+      <div className="overflow-hidden rounded-xl border bg-white shadow-sm">
+        <OrdersTable 
+          orders={filteredOrders}
+          currentPage={currentPage}
+          onPageChange={setCurrentPage}
+        />
+      </div>
     </div>
   );
 }

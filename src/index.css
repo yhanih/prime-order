@@ -117,15 +117,18 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-gradient-to-br from-[hsl(var(--bg-frame-start))] to-[hsl(var(--bg-frame-end))] text-foreground font-['Inter',sans-serif] min-h-screen;
+  html, body, #root { 
+    height: 100%; 
+  }
+  
+  body { 
+    background: #f6f7fb; 
+    color: #0f172a; 
+    font-family: 'Inter', sans-serif;
   }
 }
 
 @layer components {
-  .dashboard-frame {
-    @apply max-w-7xl mx-auto p-6 bg-[hsl(var(--surface))] rounded-3xl shadow-[0_8px_24px_rgba(16,24,40,0.08)];
-  }
   
   .status-chip {
     @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-[var(--radius-chip)];

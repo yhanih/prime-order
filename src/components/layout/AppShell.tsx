@@ -7,17 +7,23 @@ interface AppShellProps {
 export function AppShell({
   children
 }: AppShellProps) {
-  return <div className="min-h-screen p-6">
-      <div className="dashboard-frame">
-        <div className="flex min-h-[calc(100vh-3rem)]">
+  return (
+    <div className="min-h-screen bg-[#f6f7fb] text-slate-900">
+      <div className="flex">
+        <aside className="w-60 shrink-0 bg-white border-r">
           <Sidebar />
-          <div className="flex-1 flex flex-col">
-            
-            <main className="flex-1 p-6">
-              {children}
-            </main>
+        </aside>
+
+        <main className="flex-1 min-w-0">
+          <header className="sticky top-0 z-30 bg-white border-b">
+            <TopHeader />
+          </header>
+
+          <div className="px-6 py-6">
+            {children}
           </div>
-        </div>
+        </main>
       </div>
-    </div>;
+    </div>
+  );
 }

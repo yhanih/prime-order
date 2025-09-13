@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 
 export function TopHeader() {
   return (
-    <header className="flex items-center justify-between p-6 border-b border-[hsl(var(--line))] bg-white">
+    <div className="flex items-center justify-between p-6">
       {/* Search */}
       <div className="flex-1 max-w-md">
         <div className="relative">
@@ -50,6 +50,6 @@ export function TopHeader() {
           <ChevronDown className="w-4 h-4 text-[hsl(var(--muted))]" />
         </div>
       </div>
-    </header>
+    </div>
   );
 }

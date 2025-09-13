@@ -31,7 +31,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="w-[232px] border-r border-[hsl(var(--line))] bg-white">
+    <div className="h-full">
       {/* Logo */}
       <div className="p-6 border-b border-[hsl(var(--line))]">
         <div className="flex items-center gap-2">
@@ -70,6 +70,6 @@ export function Sidebar() {
           })}
         </ul>
       </nav>
-    </aside>
+    </div>
   );
 }
