@@ -36,7 +36,7 @@ export function OrderFilters({
       </div>
 
       {/* Controls */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 ml-auto">
         {/* Date Picker */}
         <Button 
           variant="outline" 
