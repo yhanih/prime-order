@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -10,6 +9,16 @@ import {
   MessageSquare,
   Settings
 } from 'lucide-react';
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar,
+} from '@/components/ui/sidebar';
 
 const navItems = [
   { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboard },
@@ -22,7 +31,9 @@ const navItems = [
   { title: 'Settings', url: '/settings', icon: Settings },
 ];
 
-export function Sidebar() {
+export function AppSidebar() {
+  const { state } = useSidebar();
+  const collapsed = state === "collapsed";
   const location = useLocation();
   
   const isActive = (path: string) => {
@@ -31,45 +42,53 @@ export function Sidebar() {
   };
 
   return (
-    <div className="h-full">
-      {/* Logo */}
-      <div className="p-6 border-b border-[hsl(var(--line))]">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[hsl(var(--primary))] rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">G</span>
+    <Sidebar className="border-r bg-white h-screen sticky top-0">
+      <SidebarContent>
+        {/* Logo */}
+        <div className="p-6 border-b">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-[hsl(var(--primary))] rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">G</span>
+            </div>
+            {!collapsed && (
+              <span className="font-semibold text-lg text-[hsl(var(--text))]">online.</span>
+            )}
           </div>
-          <span className="font-semibold text-lg text-[hsl(var(--text))]">online.</span>
         </div>
-      </div>
 
-      {/* Navigation */}
-      <nav className="p-4">
-        <ul className="space-y-1">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const active = isActive(item.url);
-            
-            return (
-              <li key={item.title}>
-                <NavLink
-                  to={item.url}
-                  className={`
-                    flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium
-                    transition-colors relative
-                    ${active 
-                      ? 'bg-[hsl(var(--primary))] text-white font-semibold' 
-                      : 'text-[hsl(var(--muted))] hover:bg-gray-50 hover:text-[hsl(var(--text))]'
-                    }
-                  `}
-                >
-                  <Icon className="w-5 h-5" />
-                  <span>{item.title}</span>
-                </NavLink>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    </div>
+        {/* Navigation */}
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu className="p-4">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const active = isActive(item.url);
+                
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <NavLink
+                        to={item.url}
+                        className={`
+                          flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium
+                          transition-colors relative w-full
+                          ${active 
+                            ? 'bg-[hsl(var(--primary))] text-white font-semibold' 
+                            : 'text-[hsl(var(--muted))] hover:bg-gray-50 hover:text-[hsl(var(--text))]'
+                          }
+                        `}
+                      >
+                        <Icon className="w-5 h-5 shrink-0" />
+                        {!collapsed && <span>{item.title}</span>}
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
   );
 }
