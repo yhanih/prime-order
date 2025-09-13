@@ -131,7 +131,7 @@
 
 @layer components {
   .dashboard-frame {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto p-6;
   }
   
   .status-chip {
