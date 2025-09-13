@@ -15,14 +15,14 @@ export function AppShell({
         <AppSidebar />
 
         <main className="flex-1 min-w-0 flex flex-col">
-          <header className="sticky top-0 z-30 bg-white border-b flex items-center">
-            <SidebarTrigger className="ml-4" />
-            <div className="flex-1">
+          <header className="sticky top-0 z-30 bg-white border-b border-gray-200 flex items-center h-16">
+            <SidebarTrigger className="ml-4 p-2 hover:bg-gray-100 rounded-md" />
+            <div className="flex-1 pr-4">
               <TopHeader />
             </div>
           </header>
 
-          <div className="px-6 py-6 flex-1">
+          <div className="px-6 py-6 flex-1 overflow-auto">
             {children}
           </div>
         </main>

@@ -42,7 +42,7 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className="border-r bg-white h-screen sticky top-0">
+    <Sidebar className="border-r border-gray-200 bg-white h-screen sticky top-0 flex-shrink-0">
       <SidebarContent>
         {/* Logo */}
         <div className="p-6 border-b">

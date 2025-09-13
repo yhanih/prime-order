@@ -49,9 +49,9 @@ export function OrderFilters({
         {/* Status Filter */}
         <Select value={statusFilter} onValueChange={onStatusChange}>
           <SelectTrigger className="w-40 h-10 bg-white border-gray-200">
-            <SelectValue placeholder="All status ▾" />
+            <SelectValue />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-white border border-gray-200 shadow-lg z-50">
             <SelectItem value="All status">All status</SelectItem>
             <SelectItem value="Confirm">Confirm</SelectItem>
             <SelectItem value="Cancel">Cancel</SelectItem>
