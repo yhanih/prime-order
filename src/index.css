@@ -120,13 +120,6 @@
   body {
     @apply bg-gradient-to-br from-[hsl(var(--bg-frame-start))] to-[hsl(var(--bg-frame-end))] text-foreground font-['Inter',sans-serif] min-h-screen;
   }
-  
-  /* Focus states for accessibility */
-  *:focus-visible { 
-    outline: none; 
-    box-shadow: 0 0 0 2px rgba(91,124,255,.45); 
-    border-radius: .5rem; 
-  }
 }
 
 @layer components {
@@ -135,38 +128,18 @@
   }
   
   .status-chip {
-    @apply inline-flex items-center px-2 py-1 text-xs font-medium rounded-full;
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-[var(--radius-chip)];
   }
   
   .status-confirm {
-    @apply text-emerald-700 bg-emerald-50 ring-1 ring-emerald-200;
+    @apply bg-[hsl(var(--ok-bg))] text-[hsl(var(--ok))];
   }
   
   .status-cancel {
-    @apply text-rose-700 bg-rose-50 ring-1 ring-rose-200;
+    @apply bg-[hsl(var(--error-bg))] text-[hsl(var(--error))];
   }
   
   .status-warning {
-    @apply text-amber-700 bg-amber-50 ring-1 ring-amber-200;
-  }
-  
-  /* Typography tokens */
-  .h1 { 
-    font-size: 22px; 
-    line-height: 28px; 
-    font-weight: 600; 
-  }
-  
-  .th { 
-    font-size: 13px; 
-    font-weight: 600; 
-    letter-spacing: .01em; 
-    color: #475569; 
-  }
-  
-  .meta { 
-    font-size: 12px; 
-    color: #64748b; 
-    font-weight: 500; 
+    @apply bg-[hsl(var(--warn-bg))] text-[hsl(var(--warn))];
   }
 }

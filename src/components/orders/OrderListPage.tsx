@@ -25,7 +25,7 @@ export function OrderListPage() {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h1 className="h1 text-[#0f172a]">Order list</h1>
+        <h1 className="text-[22px] font-semibold leading-7 text-[hsl(var(--text))]">Order list</h1>
         
         <div className="flex items-center gap-4">
           <SegmentedControl
