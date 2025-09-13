@@ -131,7 +131,7 @@
 
 @layer components {
   .dashboard-frame {
-    @apply max-w-7xl mx-auto p-6 bg-[hsl(var(--surface))] rounded-3xl shadow-[0_8px_24px_rgba(16,24,40,0.08)];
+    @apply max-w-7xl mx-auto;
   }
   
   .status-chip {
